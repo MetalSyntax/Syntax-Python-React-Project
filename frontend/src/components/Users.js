@@ -8,9 +8,21 @@ export const Users = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(API)
+        const res = await fetch(`${API}/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify ({
+                name,
+                email,
+                password
+            })
+        })
+        const data = await res.json();
+        console.log(data)
     }
     return(
         <div className="row">
