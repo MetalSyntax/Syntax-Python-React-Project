@@ -114,6 +114,15 @@ export const Users = () => {
                         placeholder="Password"
                         />
                     </div>
+                    <div className="form-group">
+                            <select className="form-control" >
+                            {users.map(user =>(
+                                <option key={user._id}>
+                                    {user.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     <button className="btn btn-primary btn-block">
                         {editing ? 'Update' : 'Create'}
                     </button>
